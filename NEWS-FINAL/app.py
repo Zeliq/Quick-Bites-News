@@ -10,7 +10,7 @@ import requests
 app = Flask(__name__)
 
 def news():
-    main_url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=8042d64c97454268b324c742555d9ab1"
+    main_url = "NEWS_API_KEY"
     news = requests.get(main_url).json()
     articles = news["articles"]
     news_article = []
@@ -25,7 +25,7 @@ arti_title, arti_desc = news()
 
 load_dotenv()
 
-palm.configure(api_key='AIzaSyC5ybtTFJqL05pyHffcdr6PJ4OTms0fNaA')
+palm.configure(api_key='PALM_API_KEY')
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
